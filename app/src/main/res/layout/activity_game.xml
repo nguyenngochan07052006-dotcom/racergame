@@ -8,9 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Nút Pause -->
-    <ImageButton
-        android:id="@+id/btnPause"
+    <TextView
+        android:id="@+id/btnSettings"
         android:layout_width="52dp"
         android:layout_height="52dp"
         android:layout_alignParentEnd="true"
@@ -18,9 +17,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="48dp"
         android:background="#99000000"
-        android:src="@android:drawable/ic_media_pause"
-        android:tint="#FFFFFF"
-        android:padding="12dp"
+        android:text="⚙️"
+        android:textSize="28sp"
+        android:gravity="center"
         android:elevation="20dp"
         android:clickable="true"
         android:focusable="true" />

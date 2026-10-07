@@ -4,7 +4,7 @@ public class Player {
     public int id;
     public String username;
     public int totalCoins;
-    public int selectedCarId;   // ← thêm
+    public int selectedCarId;
 
     public Player(int id, String username, int totalCoins) {
         this.id = id;

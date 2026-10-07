@@ -1,4 +1,4 @@
-package com.yourpackage.racergame.adapter;
+package com.yourpackage.racergame.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -30,18 +30,12 @@ public class HighScoreAdapter extends ArrayAdapter<HighScore> {
         }
 
         HighScore hs = highScores.get(position);
-
         TextView tvRank = convertView.findViewById(R.id.tvRank);
         TextView tvName = convertView.findViewById(R.id.tvName);
         TextView tvScore = convertView.findViewById(R.id.tvScore);
         TextView tvDate = convertView.findViewById(R.id.tvDate);
 
-        String rank;
-        if (position == 0) rank = "🥇";
-        else if (position == 1) rank = "🥈";
-        else if (position == 2) rank = "🥉";
-        else rank = "#" + (position + 1);
-
+        String rank = position == 0 ? "🥇" : position == 1 ? "🥈" : position == 2 ? "🥉" : "#" + (position + 1);
         tvRank.setText(rank);
         tvName.setText(hs.playerName);
         tvScore.setText("🏁 " + hs.score + " điểm");

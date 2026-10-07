@@ -6,12 +6,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.yourpackage.racergame.R;
-import com.yourpackage.racergame.adapter.HighScoreAdapter;
+import com.yourpackage.racergame.adapters.HighScoreAdapter;
 import com.yourpackage.racergame.database.DatabaseHelper;
 import com.yourpackage.racergame.database.HighScore;
 import java.util.List;
 
 public class LeaderboardActivity extends AppCompatActivity {
+
     private DatabaseHelper dbHelper;
     private ListView lvHighScores;
     private TextView tvNoData;
@@ -40,9 +41,5 @@ public class LeaderboardActivity extends AppCompatActivity {
             HighScoreAdapter adapter = new HighScoreAdapter(this, highScores);
             lvHighScores.setAdapter(adapter);
         }
-    }
-
-    public void onBackPressed(View view) {
-        finish();
     }
 }

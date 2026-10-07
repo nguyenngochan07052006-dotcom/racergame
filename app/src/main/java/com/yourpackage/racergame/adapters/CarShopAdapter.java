@@ -1,4 +1,4 @@
-package com.yourpackage.racergame.adapter;
+package com.yourpackage.racergame.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -31,28 +31,25 @@ public class CarShopAdapter extends ArrayAdapter<CarShop> {
         }
 
         CarShop car = cars.get(position);
-
         TextView tvCarName = convertView.findViewById(R.id.tvCarName);
         TextView tvPrice = convertView.findViewById(R.id.tvPrice);
         TextView tvStatus = convertView.findViewById(R.id.tvStatus);
 
         tvCarName.setText(car.carName);
 
-        if (car.isUnlocked) {
-            // Kiểm tra xem có phải xe đang chọn không
-            int selectedId = new DatabaseHelper(context).getSelectedCarId();
+        int selectedId = new DatabaseHelper(context).getSelectedCarId();
 
+        if (car.isUnlocked) {
             if (car.id == selectedId) {
                 tvPrice.setText("✅ ĐANG SỬ DỤNG");
                 tvPrice.setTextColor(context.getColor(android.R.color.holo_green_light));
                 tvStatus.setText("🟢 Đang chọn");
-                tvStatus.setTextColor(context.getColor(android.R.color.holo_green_light));
             } else {
                 tvPrice.setText("👆 Chạm để chọn");
                 tvPrice.setTextColor(context.getColor(android.R.color.holo_blue_light));
                 tvStatus.setText("🟢 Đã sở hữu");
-                tvStatus.setTextColor(context.getColor(android.R.color.holo_green_light));
             }
+            tvStatus.setTextColor(context.getColor(android.R.color.holo_green_light));
         } else {
             tvPrice.setText("💰 " + car.price + " coins");
             tvPrice.setTextColor(context.getColor(android.R.color.holo_orange_light));

@@ -1,4 +1,4 @@
-package com.yourpackage.racergame.utils;
+package com.yourpackage.racergame.game.manager;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -36,6 +36,7 @@ public class PlayerManager {
         if (currentPlayer != null) {
             dbHelper.updatePlayerUsername(currentPlayer.id, newName);
             currentPlayer.username = newName;
+            prefs.edit().putString("username", newName).apply();
         }
     }
 
@@ -47,19 +48,11 @@ public class PlayerManager {
         }
     }
 
-    public boolean hasEnoughCoins(int amount) {
-        return currentPlayer != null && currentPlayer.totalCoins >= amount;
-    }
-
-    public void deductCoins(int amount) {
-        if (currentPlayer != null && hasEnoughCoins(amount)) {
-            int newTotal = currentPlayer.totalCoins - amount;
-            dbHelper.updatePlayerCoins(currentPlayer.id, newTotal);
-            currentPlayer.totalCoins = newTotal;
-        }
-    }
-
     public void refreshPlayer() {
         currentPlayer = dbHelper.getPlayer();
+    }
+    public void setCurrentPlayer(Player player) {
+        this.currentPlayer = player;
+        prefs.edit().putInt("current_player_id", player.id).apply();
     }
 }

@@ -6,17 +6,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.yourpackage.racergame.R;
-import com.yourpackage.racergame.adapter.CarShopAdapter;
+import com.yourpackage.racergame.adapters.CarShopAdapter;
 import com.yourpackage.racergame.database.CarShop;
 import com.yourpackage.racergame.database.DatabaseHelper;
 import com.yourpackage.racergame.database.Player;
-import com.yourpackage.racergame.utils.PlayerManager;
+import com.yourpackage.racergame.game.manager.PlayerManager;
 import java.util.List;
 
 public class ShopActivity extends AppCompatActivity {
+
     private DatabaseHelper dbHelper;
     private PlayerManager playerManager;
-    private TextView tvCoins;
+    private TextView tvCoins, btnBack;
     private ListView lvCars;
     private CarShopAdapter adapter;
 
@@ -29,15 +30,16 @@ public class ShopActivity extends AppCompatActivity {
         playerManager = PlayerManager.getInstance(this);
 
         tvCoins = findViewById(R.id.tvCoins);
+        btnBack = findViewById(R.id.btnBack);
         lvCars = findViewById(R.id.lvCars);
+
+        btnBack.setOnClickListener(v -> finish());
 
         loadData();
 
         lvCars.setOnItemClickListener((parent, view, position, id) -> {
             CarShop car = adapter.getItem(position);
-            if (car != null) {
-                handleBuyCar(car);
-            }
+            if (car != null) handleBuyCar(car);
         });
     }
 
@@ -53,11 +55,7 @@ public class ShopActivity extends AppCompatActivity {
     }
 
     private void handleBuyCar(CarShop car) {
-        Player player = playerManager.getCurrentPlayer();
-        if (player == null) return;
-
         if (car.isUnlocked) {
-            // Đã sở hữu → Cho phép chọn xe này
             dbHelper.setSelectedCarId(car.id);
             playerManager.refreshPlayer();
             Toast.makeText(this, "✅ Đã chọn xe: " + car.carName, Toast.LENGTH_SHORT).show();
@@ -65,7 +63,9 @@ public class ShopActivity extends AppCompatActivity {
             return;
         }
 
-        // Chưa sở hữu → Mua
+        Player player = playerManager.getCurrentPlayer();
+        if (player == null) return;
+
         if (player.totalCoins < car.price) {
             Toast.makeText(this, "❌ Không đủ tiền! Cần " + car.price + " coins", Toast.LENGTH_SHORT).show();
             return;
@@ -73,7 +73,6 @@ public class ShopActivity extends AppCompatActivity {
 
         boolean success = dbHelper.unlockCar(car.id, player.id, car.price);
         if (success) {
-            // Mua xong tự động chọn luôn
             dbHelper.setSelectedCarId(car.id);
             Toast.makeText(this, "🎉 Mua và chọn xe thành công!", Toast.LENGTH_SHORT).show();
             playerManager.refreshPlayer();

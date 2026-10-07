@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A1628">
+
+    <!-- Nội dung chính -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏎️ RACER GAME"
+            android:textSize="36sp"
+            android:textColor="#FFD700"
+            android:textStyle="bold"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:id="@+id/tvPlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👤 Player"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvTotalCoins"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="💰 0"
+            android:textSize="24sp"
+            android:textColor="#FFD700"
+            android:layout_marginBottom="40dp"/>
+
+        <Button
+            android:id="@+id/btnPlay"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:text="🎮 CHƠI NGAY"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#2E7D32"
+            android:layout_marginBottom="14dp"/>
+
+        <Button
+            android:id="@+id/btnSelectPlayer"
+            android:layout_width="280dp"
+            android:layout_height="56dp"
+            android:text="👥 CHỌN NGƯỜI CHƠI"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#6A1B9A"
+            android:layout_marginBottom="14dp"/>
+
+        <Button
+            android:id="@+id/btnShop"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:text="🏪 CỬA HÀNG"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#1565C0"
+            android:layout_marginBottom="14dp"/>
+
+        <Button
+            android:id="@+id/btnLeaderboard"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:text="🏆 BẢNG XẾP HẠNG"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#EF6C00"/>
+    </LinearLayout>
+
+    <!-- Nút Settings góc trên bên phải (giống Game) -->
+    <TextView
+        android:id="@+id/btnSettings"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="48dp"
+        android:background="#99000000"
+        android:text="⚙️"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:elevation="20dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+</RelativeLayout>

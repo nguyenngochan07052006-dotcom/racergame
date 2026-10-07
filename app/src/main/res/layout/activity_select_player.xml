@@ -5,15 +5,12 @@
     android:orientation="vertical"
     android:background="#0A1628"
     android:paddingTop="48dp"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    android:paddingBottom="16dp">
+    android:padding="16dp">
 
-    <!-- Nút Back + Tiêu đề -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="20dp">
 
         <TextView
             android:id="@+id/btnBack"
@@ -23,36 +20,32 @@
             android:textSize="28sp"
             android:textColor="#FFFFFF"
             android:gravity="center"
-            android:background="#33FFFFFF"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"/>
+            android:background="#33FFFFFF"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🏪 CỬA HÀNG XE"
-            android:textSize="24sp"
+            android:text="👥 CHỌN NGƯỜI CHƠI"
+            android:textSize="22sp"
             android:textColor="#FFD700"
             android:textStyle="bold"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvCoins"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="💰 0"
-        android:textSize="22sp"
-        android:textColor="#FFD700"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"/>
-
-    <ListView
-        android:id="@+id/lvCars"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPlayers"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="#333333"
-        android:dividerHeight="1dp"/>
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btnCreatePlayer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="＋ TẠO NGƯỜI CHƠI MỚI"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2E7D32"
+        android:layout_marginTop="12dp"/>
 
 </LinearLayout>

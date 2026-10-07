@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#E61A1A2E"
+    android:padding="28dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⚙️ CÀI ĐẶT"
+        android:textSize="24sp"
+        android:textColor="#FFD700"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <Button
+        android:id="@+id/btnToggleSound"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="🔊  Âm thanh: BẬT"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#455A64"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnToggleMusic"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="🎵  Nhạc nền: BẬT"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#455A64"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:text="ĐÓNG"
+        android:textSize="15sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#C62828"/>
+
+</LinearLayout>

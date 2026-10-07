@@ -6,16 +6,16 @@ import android.os.Vibrator;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import com.yourpackage.racergame.MainActivity;
 import com.yourpackage.racergame.R;
 import com.yourpackage.racergame.database.DatabaseHelper;
 import com.yourpackage.racergame.database.Player;
-import com.yourpackage.racergame.utils.PlayerManager;
+import com.yourpackage.racergame.game.manager.PlayerManager;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 public class GameOverActivity extends AppCompatActivity {
+
     private DatabaseHelper dbHelper;
     private PlayerManager playerManager;
     private TextView tvScore, tvDistance, tvCoins, tvGems, tvTotalCoins;
@@ -24,7 +24,7 @@ public class GameOverActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gameover);
+        setContentView(R.layout.activity_game_over);
 
         dbHelper = new DatabaseHelper(this);
         playerManager = PlayerManager.getInstance(this);
@@ -48,9 +48,7 @@ public class GameOverActivity extends AppCompatActivity {
         tvGems.setText("💎 Ngọc: " + gems);
 
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-        if (vibrator != null) {
-            vibrator.vibrate(500);
-        }
+        if (vibrator != null) vibrator.vibrate(500);
 
         saveGameData(score, coins, gems);
 
@@ -60,7 +58,7 @@ public class GameOverActivity extends AppCompatActivity {
         });
 
         btnMenu.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, MainMenuActivity.class));
             finish();
         });
     }
@@ -69,15 +67,15 @@ public class GameOverActivity extends AppCompatActivity {
         Player player = dbHelper.getPlayer();
         if (player == null) return;
 
-        String currentDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
-        dbHelper.insertHighScore(player.username, score, currentDate);
+        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+        dbHelper.insertHighScore(player.username, score, date);
 
         int totalCoins = coins + (gems * 50);
         playerManager.updateCoins(totalCoins);
 
-        Player updatedPlayer = dbHelper.getPlayer();
-        if (updatedPlayer != null) {
-            tvTotalCoins.setText("💰 Tổng coins: " + updatedPlayer.totalCoins);
+        Player updated = dbHelper.getPlayer();
+        if (updated != null) {
+            tvTotalCoins.setText("💰 Tổng coins: " + updated.totalCoins);
         }
     }
 }

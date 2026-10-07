@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#E61A1A2E"
+    android:padding="28dp"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⚙️ TẠM DỪNG"
+        android:textSize="26sp"
+        android:textColor="#FFD700"
+        android:textStyle="bold"
+        android:layout_marginBottom="28dp"/>
+
+    <Button
+        android:id="@+id/btnResume"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="▶  CHƠI TIẾP"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#2E7D32"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnRestart"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="🔄  CHƠI LẠI"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1565C0"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnSound"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="🔊  ÂM THANH"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#F57C00"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnExit"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:text="🚪  THOÁT"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#C62828"/>
+
+</LinearLayout>

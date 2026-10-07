@@ -15,8 +15,9 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
 
+        <!-- Màn hình chính -->
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainMenuActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -25,21 +26,29 @@
             </intent-filter>
         </activity>
 
+        <!-- Màn hình chơi game -->
         <activity
             android:name=".ui.GameActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false" />
 
+        <!-- Màn hình Game Over -->
         <activity
             android:name=".ui.GameOverActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false" />
 
+        <!-- Cửa hàng -->
         <activity
             android:name=".ui.ShopActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false" />
 
+        <!-- Bảng xếp hạng -->
         <activity
             android:name=".ui.LeaderboardActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:exported="false" />
 
     </application>
 

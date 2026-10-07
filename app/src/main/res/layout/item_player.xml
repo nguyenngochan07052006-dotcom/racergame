@@ -3,28 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="12dp"
-    android:background="#0A1628">
-
-    <TextView
-        android:id="@+id/tvRank"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:text="#1"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:layout_gravity="center_vertical"/>
+    android:padding="16dp"
+    android:background="#1B2838"
+    android:layout_marginBottom="8dp"
+    android:clickable="false"
+    android:focusable="false">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
-        android:layout_marginStart="12dp">
+        android:clickable="false"
+        android:focusable="false">
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tvPlayerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Player"
@@ -33,20 +27,22 @@
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/tvScore"
+            android:id="@+id/tvPlayerCoins"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🏁 0 điểm"
+            android:text="🪙 500"
             android:textSize="14sp"
             android:textColor="#FFD700"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tvDate"
+    <Button
+        android:id="@+id/btnSelect"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="01/01/2024"
-        android:textSize="12sp"
-        android:textColor="#888888"
-        android:layout_gravity="center_vertical"/>
+        android:layout_height="40dp"
+        android:text="CHỌN"
+        android:textSize="13sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1565C0"
+        android:clickable="true"
+        android:focusable="true"/>
 </LinearLayout>
